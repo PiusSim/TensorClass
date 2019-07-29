@@ -13,13 +13,15 @@ m :  5
 키_test = [165, 190]
 
 model = LinearRegression().fit(키, 몸무게)
+몸무게_test = model.coef_ * 키_test + model.intercept_
 print('a', model.coef_, 'b', model.intercept_)
 plt.plot(키, 몸무게)
-x = np.arange(140, 200, 10)
+x = np.arange(140, 200)
 y = model.coef_ * x + model.intercept_
 
 plt.plot(x, y)
 plt.scatter(키, 몸무게)
+plt.scatter(키_test, 몸무게_test)
 plt.xlabel('key')
 plt.ylabel('kg')
 plt.title('height/weight')
